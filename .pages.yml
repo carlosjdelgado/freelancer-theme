@@ -4,6 +4,16 @@ media:
     input: img/portfolio
     output: /img/portfolio
     extensions: [png, jpg, jpeg, gif, webp, svg]
+  - name: audio
+    label: Audio
+    input: assets/audio
+    output: /assets/audio
+    extensions: [mp3, wav, ogg, m4a, aac, flac]
+  - name: video
+    label: Video
+    input: assets/video
+    output: /assets/video
+    extensions: [mp4, webm, mov]
 
 content:
   - name: projects
