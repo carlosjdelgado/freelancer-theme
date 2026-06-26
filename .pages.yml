@@ -1,0 +1,100 @@
+media:
+  - name: portfolio
+    label: Portfolio images
+    input: img/portfolio
+    output: /img/portfolio
+    extensions: [png, jpg, jpeg, gif, webp, svg]
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.markdown"
+    view:
+      fields: [client, category, project-date, img]
+      primary: client
+      sort: [-date]
+    fields:
+      - name: layout
+        type: string
+        default: default
+        hidden: true
+      - name: modal-id
+        label: Modal ID
+        type: number
+      - name: date
+        label: Date
+        type: date
+        options:
+          time: false
+      - name: img
+        label: Image
+        type: image
+        options:
+          input: img/portfolio
+          output: /img/portfolio
+      - name: alt
+        label: Alt text
+        type: string
+      - name: project-date
+        label: Project date
+        type: string
+      - name: client
+        label: Client
+        type: string
+      - name: category
+        label: Category
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          media: portfolio
+
+  - name: site_config
+    label: Site config
+    type: file
+    path: _config.yml
+    format: yaml
+    fields:
+      - name: title
+        type: string
+      - name: email
+        type: string
+      - name: description
+        type: text
+      - name: keywords
+        type: string
+      - name: skills
+        type: string
+      - name: meta_author
+        label: Meta author
+        type: string
+      - name: contact
+        type: select
+        options:
+          values: [static, disqus]
+      - name: footer
+        type: object
+        fields:
+          - { name: copyright, type: string }
+          - { name: location, type: string }
+          - { name: social, type: string }
+          - { name: credits, type: string }
+      - name: social
+        type: object
+        list: true
+        fields:
+          - { name: title, type: string }
+          - { name: url, type: string }
+      - name: address
+        type: object
+        list: true
+        fields:
+          - { name: line, type: string }
+      - name: credits
+        type: text
